@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     networks:
       containers:
-        ipv4_address: 172.20.0.6
+        ipv4_address: 172.17.0.6
 
   pihole:
     container_name: pihole
@@ -49,10 +49,10 @@ services:
     restart: unless-stopped
     networks:
       containers:
-        ipv4_address: 172.20.0.7
+        ipv4_address: 172.17.0.7
 
 networks:
   containers:
     ipam:
       config:
-        - subnet: 172.20.0.0/24
+        - subnet: 172.17.0.0/24
