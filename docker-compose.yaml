@@ -11,11 +11,11 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Mendoza
-      - SERVERURL= 
-      - SERVERPORT=51820 #optional
-      - PEERS=2 #optional
-      - PEERDNS=auto #optional
-      - INTERNAL_SUBNET=10.13.13.0 #optional
+      - SERVERURL="200.56.236.194"  # Asegurar comillas si es necesario
+      - SERVERPORT="51820"
+      - PEERS="2"
+      - PEERDNS="172.20.0.7"
+      - INTERNAL_SUBNET="10.13.13.0/24"
     volumes:
       - /root/wireguard:/config
       - /lib/modules:/lib/modules
@@ -40,8 +40,9 @@ services:
       - "80"
       - "443"
     environment:
-      TZ: 'America/Mendoza'
-      WEBPASSWORD: 'javier'
+      - TZ="America/Mendoza"
+      - WEBPASSWORD="javier"
+      - ServerIP="172.20.0.7"
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
