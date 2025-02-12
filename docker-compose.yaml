@@ -3,7 +3,7 @@ version: '3.7'
 services:
   wireguard:
     image: linuxserver/wireguard
-    container_name: wireguardpihole
+    container_name: wireguard
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     networks:
       containers:
-        ipv4_address: 172.17.0.6
+        ipv4_address: 172.20.0.6
 
   pihole:
     container_name: pihole
@@ -40,7 +40,7 @@ services:
       - "443"
     environment:
       TZ: 'America/Mendoza'
-      WEBPASSWORD: 'Javier'
+      WEBPASSWORD: 'javier'
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
@@ -49,10 +49,10 @@ services:
     restart: unless-stopped
     networks:
       containers:
-        ipv4_address: 172.17.0.7
+        ipv4_address: 172.20.0.7
 
 networks:
   containers:
     ipam:
       config:
-        - subnet: 172.17.0.0/24
+        - subnet: 172.20.0.0/24
