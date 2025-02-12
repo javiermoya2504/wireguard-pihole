@@ -3,7 +3,7 @@ version: '3.7'
 services:
   wireguard:
     image: linuxserver/wireguard
-    container_name: wireguard
+    container_name: wireguardpihole
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
